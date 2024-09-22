@@ -45,4 +45,4 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
 [transient_prompt]
   background = 'transparent'
   foreground = 'magenta'
-  template = '→'
+  template = '→ '
