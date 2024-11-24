@@ -1,23 +1,24 @@
-# --------- oh-my-posh ---------
+### Syntax highlighting
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+### Zsh Completions
+autoload -U compinit; compinit
+
+
+### Zsh History Search
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+
+### Oh My Posh
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 fi
 
-# --------- nvm ---------
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# Aliases
-alias ll="ls -la"
-alias ls="ls --color"
-alias l="ls -A"
-alias py="python3"
-alias v="nvim"
-alias vim="nvim"
-alias vz="vim ~/.zshrc"
-
-# ----- fzf -----
+### fzf
 source <(fzf --zsh)
 
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
@@ -50,4 +51,22 @@ _fzf_comprun() {
   esac
 }
 
+
+### nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+
+### Kubernetes
+alias kubectl="minikube kubectl --"
+
+
+### Aliases
+alias ll="ls -la"
+alias ls="ls --color"
+alias l="ls -A"
+alias py="python3"
+alias v="nvim"
+alias vim="nvim"
+alias vz="vim ~/.zshrc"
 
